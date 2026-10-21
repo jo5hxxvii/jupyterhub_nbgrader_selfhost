@@ -1,6 +1,8 @@
 FROM quay.io/jupyterhub/jupyterhub:5
 RUN pip install --no-cache-dir jupyterlab notebook \
     jupyterhub-nativeauthenticator nbgrader
+RUN pip install --no-cache-dir pandas numpy matplotlib seaborn scipy \
+    scikit-learn openpyxl requests
 RUN useradd -m -s /bin/bash instructor \
  && mkdir -p /srv/nbgrader/exchange /srv/jupyterhub \
  && chmod 777 /srv/nbgrader/exchange

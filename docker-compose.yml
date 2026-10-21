@@ -3,7 +3,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8000:8888"
     volumes:
       - hub_data:/srv/jupyterhub
       - home:/home
