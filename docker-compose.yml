@@ -5,11 +5,7 @@ services:
     expose:
       - "8000"
     volumes:
-      - hub_data:/srv/jupyterhub
-      - home:/home
-      - exchange:/srv/nbgrader/exchange
+      - /opt/jhub/hub_data:/srv/jupyterhub
+      - /opt/jhub/home:/home
+      - /opt/jhub/exchange:/srv/nbgrader/exchange
 
-volumes:
-  hub_data:
-  home:
-  exchange:
