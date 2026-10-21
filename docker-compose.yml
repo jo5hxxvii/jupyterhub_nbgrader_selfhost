@@ -2,12 +2,13 @@ services:
   jupyterhub:
     build: .
     restart: unless-stopped
-    ports:
-      - "8000:8888"
+    expose:
+      - "8000"
     volumes:
       - hub_data:/srv/jupyterhub
       - home:/home
       - exchange:/srv/nbgrader/exchange
+
 volumes:
   hub_data:
   home:
