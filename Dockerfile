@@ -3,10 +3,10 @@ RUN pip install --no-cache-dir jupyterlab notebook \
     jupyterhub-nativeauthenticator nbgrader
 RUN pip install --no-cache-dir pandas numpy matplotlib seaborn scipy \
     scikit-learn openpyxl requests
-RUN useradd -m -s /bin/bash instructor \
- && mkdir -p /srv/nbgrader/exchange /srv/jupyterhub \
- && chmod 777 /srv/nbgrader/exchange
-COPY jupyterhub_config.py /srv/jupyterhub/jupyterhub_config.py
+RUN mkdir -p /srv/nbgrader/exchange /srv/jupyterhub /etc/jupyterhub
+COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 COPY nbgrader_config.py /etc/jupyter/nbgrader_config.py
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 WORKDIR /srv/jupyterhub
-CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]
+CMD ["/entrypoint.sh"]
