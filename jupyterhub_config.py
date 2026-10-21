@@ -11,6 +11,8 @@ c.JupyterHub.template_paths = [
 c.Authenticator.admin_users = {"admin"}
 c.Authenticator.allow_all = True   # Native still needs your approval per user
 c.LocalAuthenticator.create_system_users = True
+c.Authenticator.username_pattern = r"^(?=.{1,32}$)(?i:alt)(_[a-z0-9]+){4}$"
+c.NativeAuthenticator.ask_email_on_signup = True
 c.NativeAuthenticator.open_signup = False
 c.Spawner.default_url = "/lab"
 c.Spawner.start_timeout = 120
