@@ -9,9 +9,9 @@ c.JupyterHub.authenticator_class = LocalNativeAuthenticator
 c.JupyterHub.template_paths = [
     f"{os.path.dirname(nativeauthenticator.__file__)}/templates/"]
 c.Authenticator.admin_users = {"admin"}
-c.Authenticator.allow_all = True   # Native still needs your approval per user
+c.Authenticator.allow_all = True 
 c.LocalAuthenticator.create_system_users = True
-c.Authenticator.username_pattern = r"^(?=.{1,32}$)(?i:admin|alt(_[a-z0-9]+){4})$"
+c.Authenticator.username_pattern = r"^(?=.{1,32}$)(?i:admin|alt(_[a-z0-9]+){4})$" #specific pattern for usernames
 c.NativeAuthenticator.ask_email_on_signup = True
 c.NativeAuthenticator.open_signup = False
 c.Spawner.default_url = "/lab"
